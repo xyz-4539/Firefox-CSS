@@ -1,0 +1,649 @@
+/*===KeyFox by AlfarexGuy2019===*/ 
+
+/*===COLORS===*/
+
+:root {
+  --accent-color: 45, 45, 45;
+  --tab-color: 240, 240, 244;
+  --tab-text-color: 255, 255, 255;
+  --secondary-accent-color: 127,127,127;
+  --second-tab-text-color: 127,127,127;
+  --third-accent-color: 235, 219, 178;
+  --light-color: 255, 255, 255;
+  --dark-color: 0, 0, 0;
+  --url-back: 249, 249, 251;	
+  --caption-min-color: 215, 153, 33;
+  --caption-max-color: 69, 133, 136;
+  --caption-close-color: 177, 98, 134;
+}
+
+
+
+
+/*Basic Settings*/
+
+
+:root {
+  --navbarWidth     : 40vw; /* Set width of navbar. Use px for a fixed width 
+                                or vw for a percentage of your window. */
+  --animationSpeed  : 0.5s;
+}
+
+#TabsToolbar {
+  margin-left : var(--navbarWidth) !important;    /* Width of the Tab Toolbar, where the different tabs are placed not the bookmarks tab */
+}
+
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+}
+
+#urlbar-container {
+  min-width   : 0px !important;
+}
+
+:root[uidensity="compact"] #nav-bar {
+  margin-top  : -37px !important;
+  height      : 37px !important;
+}
+
+:root:not([uidensity="compact"]):not([uidensity="touch"]) #nav-bar {
+  margin-top  : -44px !important;
+  height      : 44px !important;
+}
+
+:root[uidensity="touch"] #nav-bar {
+  margin-top  : -49px !important;
+  height      : 49px !important;
+}
+
+
+/* Back Hide */
+#back-button[disabled="true"] { display: none !important }
+
+/* Forward Hide */
+#forward-button[disabled="true"] { display: none !important }
+
+/* Site information button */
+#identity-box { display: none !important }
+
+/* "Shield" icon */
+#tracking-protection-icon-container { display: none !important }
+
+
+/* Simplifying interface */
+
+#nav-bar {
+  background  : none !important;
+  box-shadow  : none !important;
+}
+
+#navigator-toolbox {
+  border      : none !important;
+}
+
+.titlebar-spacer {
+  display     : none !important;
+}
+
+#urlbar-background {
+  border      : none !important;
+}
+
+#urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
+  box-shadow  : none !important;
+  background  : none !important;
+}
+
+/* Element Hiding stuff */
+
+.urlbar-icon, #userContext-indicator, #userContext-label {
+  fill        : transparent !important;
+  background  : transparent !important;
+  color       : transparent !important;
+}
+
+#urlbar:hover .urlbar-icon,
+#urlbar:active .urlbar-icon, 
+#urlbar[focused] .urlbar-icon {
+  fill        : var(--toolbar-color) !important;
+}
+
+/*================== TABS BAR ==================*/
+
+#titlebar #TabsToolbar {
+  background: rgba(var(--dark-color), 1) !important;
+}
+
+#PersonalToolbar {                                      /* BOOKMARKS BAR */
+  background: rgba(var(--dark-color), 1) !important;
+  color: rgba(var(--dark-color), 1) !important;
+  padding-bottom: 6px !important;
+  padding-top: 1px !important;
+}
+
+toolbar#nav-bar {                                       /* URL BAR AND NAVIGATION BUTTONS */
+  background: rgba(var(--dark-color), 1) !important;
+  box-shadow: none !important;
+  padding-bottom: 4px !important;
+}
+
+/*================ DARK THEME ================*/
+:root:-moz-lwtheme-brighttext,
+.sidebar-panel[lwt-sidebar-brighttext],
+body[lwt-sidebar-brighttext] {
+	--main-bgcolor: var(--dark-color);
+	--transparent-bgcolor: var(--dark-color);
+}
+
+tab[selected="true"] .tab-content {
+  color: rgba(var(--secondary-accent-color), 1) !important;
+}
+
+/* Remove the white border on hover */
+.tabbrowser-tab:hover .tab-background {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Remove any border or outline from the selected tab */
+tab[selected="true"] .tab-background {
+  border: none !important;
+  outline: none !important;
+  background: rgba(#212121, 1) !important;
+}
+
+/* You can keep this to remove the border on hover, if needed */
+tab[selected="true"]:hover .tab-background {
+  border: none !important;
+  outline: none !important;
+}
+
+tab[selected="true"] .tab-background {
+  background: rgba(#212121, 1) !important;
+}
+.tabbrowser-tab>.tab-stack>.tab-background:not([selected="true"]) {
+  transition: all 0.2s linear !important;
+}
+
+/*.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]) {  /* This makes the selected tab change color when you hover */
+  /*background-color: rgba(var(--transparent-bgcolor), 0.7) !important; 
+}*/
+
+.tab-line {
+  height: 0px !important;
+}
+
+.tabbrowser-tab {
+  margin-right: 5px !important;
+}
+
+.tabbrowser-tab:not([visuallyselected="true"]),
+.tabbrowser-tab:-moz-lwtheme {
+  color: rgba(var(--second-tab-text-color), 1) !important;
+}
+
+tab[selected="true"] .tab-content {
+  color: rgba(var(--tab-text-color), 1) !important;
+}
+
+tab[selected="true"] .tab-background {
+  background: rgba(var(--accent-color), 1) !important;
+}
+
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  border-left: 0 !important;
+  opacity: 0 !important;
+}
+
+.tab-close-button {
+  transition: all 0.3s ease !important;
+  /*background-color: rgba(36, 33, 33, 0.7);*/
+  border-radius: 4px !important;
+}
+
+.tabbrowser-tab .tab-label  { color: var(--uc-inverted-colour) !important; }
+.tab-close-button { fill: var(--uc-inverted-colour) !important } /*CHANGES COLOR OF THE CLOSE TAB BUTTON*/
+
+/*** MAKE TABS SHOW TAB CLOSE BUTTON ON HOVER LIKE IF IT WAS THE SELECTED TAB (DOESN'T WORK WHEN YOU HAVE MORE THAN 7 TABS OPEN* **/
+/* Always show the hover effect on the close button for non-selected tabs */
+.tabbrowser-tab:not([selected="true"]) {
+  position: relative;
+}
+
+.tabbrowser-tab:not([selected="true"]) .tab-close-button {
+  background-color: rgba(36, 33, 33, 0.7) !important; /* Background color for the hover effect */
+  color: rgba(var(--uc-inverted-colour), 1) !important; /* Text color for the hover effect */
+}
+
+/* Ensure the hover effect is applied to the close button only when hovering over the entire tab */
+.tabbrowser-tab:not([selected="true"]):hover .tab-close-button {
+  background-color: rgba(36, 33, 33, 0.7) !important; /* Background color for the hover effect */
+  color: rgba(var(--uc-inverted-colour), 1) !important; /* Text color for the hover effect */
+}
+
+/* Default style for the close button of non-selected tabs (not in hover state) */
+.tabbrowser-tab:not([selected="true"]) .tab-close-button {
+  background-color: transparent !important; /* Default background color */
+  color: rgba(var(--uc-inverted-colour), 0.7) !important; /* Default text color */
+}
+
+/* Ensures that the selected tab's close button does not change */
+tab[selected="true"] .tab-close-button {
+  background-color: transparent !important; /* Keeps the selected tab's close button distinct */
+}
+
+
+/*================FIND BAR================*/
+/* Find bar ( Ctlr + F) On Top of Screen */
+findbar {
+  contain: content;
+  border: 1px solid var(--chrome-content-separator-color);
+  border-radius: var(--toolbarbutton-border-radius);
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+/* Positioning and Length/Width modify as required */
+  position: absolute;
+  right: 0px;
+  top: 0.5px;
+  width: 890px !important;
+}
+
+/*=============BOOKMARKS BAR=============*/
+/*Height of Bookmarks Bar*/
+:root[uidensity="compact"] #PlacesToolbarItems {
+  margin-top : 2px     !important; /* Distance between the Tab and the Bookmark Bar */
+  height     : 16.3px  !important; /* How much it stretches down */
+}
+
+/* Make Bookmarks Black and White */
+/*.tab-icon-image,                                   Icons in the Tab Bar */
+.bookmark-item .menu-iconic-left,                  /*Icon in the Bookmarks Menu */ 
+.bookmark-item .toolbarbutton-icon,                /*Icon in the Bookmarks Toolbar */ 
+treechildren.sidebar-placesTreechildren {          /*Icons in the Bookmarks side bar (next to the tabs or URL bar)*/
+    filter: grayscale(1) contrast(1) !important;
+}
+
+#PersonalToolbar {
+  color: rgb(255, 255, 255, 1) !important;       /*Color of the text in Bookmarks Bar */
+}
+
+/* Bookmark Separator Height And Width */
+#PlacesToolbarItems > toolbarseparator {
+  height     : 100px !important;
+  width      : 20px  !important;
+}
+
+/* Make separator reach its full height */
+#PlacesToolbarItems > toolbarseparator {
+  margin: 0;
+  padding-inline: 4px;
+  appearance: none;
+
+/* When adjacent to the bookmarks items, give the bookmarks items a leading separator. */
+  &::before {
+    content: "";
+    display: block;
+    border-inline-start: 1px solid;
+    border-image-source: linear-gradient(
+      transparent 0px,
+      var(--toolbarseparator-color) 0px,
+      var(--toolbarseparator-color) calc(100% - 0px),
+      transparent calc(100% - 0px) ) !important;
+    border-image-slice: 1;
+  }
+}
+
+/* Color of the bookmark separator */
+#PlacesToolbarItems > toolbarseparator::before {
+  border-image-source: unset !important;
+  border-color: rgb(89, 89, 89,1) contrast(1) !important;
+}
+
+/* COLOR OF BOOKMARKS SEPARATOR 
+#PlacesToolbarItems > toolbarseparator {
+  filter: contrast(20%) sepia(20%) brightness(1) ;
+} */
+
+/*================TAB BAR BUTTONS================*/
+/*** REMOVE EXTENSIONS BUTTON ***/
+/*#unified-extensions-button {
+  display:none !important;
+}*/
+
+/*** REMOVE LIST ALL TABS BUTTON ***/
+#alltabs-button {
+  display:none !important;
+}
+
+/*===============STYLE OF CONTEXT MENU===============*/
+menupopup {
+  --panel-background: #141414 !important;
+}
+
+/*=============HIDE CONTEXT MENU ITEMS=============*/
+/*** Remove items from image context menu ***/
+
+/* Remove Separators */
+#context-sep-open, #context-sep-sendlinktodevice, #context-sep-setbackground, #context-media-eme-separator, #context-sep-sharing {
+  display:none !important;
+}
+
+/* Email Image... */
+#context-sendimage {
+  display: none !important;
+}
+
+/* Set Image as Desktop Background... (and preceding separator) */
+#context-sep-setbackground, #context-setDesktopBackground {
+  display: none !important;
+}
+
+/* Inspect Accessibility Properties */
+#context-inspect-a11y {
+  display: none !important;
+}
+
+/* Save Link to Pocket*/
+#context-savelinktopocket {
+  display: none !important;
+}
+
+/* Open Link in Private Window*/
+#context-openlinkprivate {
+  display:none !important;
+}
+
+/* Bookmark Link*/
+#context-bookmarklink {
+  display:none !important;
+}
+
+/* Take Screenshot */
+#context-take-screenshot {
+  display:none !important;
+}
+/* Save Link as */
+#context-savelink {
+  display:none !important;
+}
+
+/* Copy Link */
+#context-copylink {
+  display:none !important;
+}
+
+/* Copy Image Link */
+#context-copyimage {
+  display:none !important;
+}
+
+/* Open Link in New Tab */            /* Affects Both Image Context Menu and Link Context Menu */
+/*#context-openlinkintab {
+  display:none !important;
+}
+
+  /* Open Link in New Window */       /* Affects Both Image Context Menu and Link Context Menu */
+#context-openlink {  
+  display:none !important;
+}
+
+/* Copy Link Without Site Tracking */ /* Affects Both Image Context Menu and Link Context Menu */
+/*#context-stripOnShareLink {
+  display:none !important;
+}
+
+/* Translate Link Text to English */
+#context-translate-selection {
+  display:none !important;
+}
+
+/* Copy Image Link DOESNT WORK*/
+#context-copylink {
+  display:none !important;
+}
+
+/*=== Remove Extensions from Context Menu=== */ 
+
+/* Copy Clean Link Location  */
+#_74145f27-f039-47ce-a470-a662b129930a_-menuitem-_copy-link-to-clipboard {
+  display:none !important;
+}
+
+/* Block Element uBlock */
+html#main-window body popupset#mainPopupSet menupopup#contentAreaContextMenu menuitem#ublock0_raymondhill_net-menuitem-_uBlock0-blockElement.menuitem-iconic {
+  display:none !important;
+}
+
+/* Bitwarden */
+#_446900e4-71c2-419f-a6a7-df9c091e268b_-menuitem-_root {
+  display:none !important;
+}
+
+/*=====================================================================================================================================================================================================================*/
+/*** Remove items from tab context menu ***/
+
+/* Remove Separators */
+#tabContextMenu > menuseparator:nth-child(2) {
+  display:none !important;
+}
+
+#tabContextMenu > menuseparator:nth-child(15) {
+display:none !important;
+}
+
+#tabContextMenu > menuseparator:nth-child(23) {
+  display:none !important;
+}
+
+/* New Tab */
+#context_openANewTab {
+  display:none !important;
+}
+
+/* Mute Tab */
+/*#context_toggleMuteTab {
+  display:none !important;
+}
+
+/* Share Tab Option */
+#context_sendTabToDevice {
+  display:none !important;
+}
+
+/* Move Tab Options */
+#context_moveTabOptions {
+  display:none !important;
+}
+
+/* Share Tab */
+.share-tab-url-item {
+  display:none !important;
+}
+
+/* Select All Tabs */
+#context_selectAllTabs {
+  display:none !important;
+}
+
+/* Close Duplicate Tabs */
+#context_closeDuplicateTabs {
+  display:none !important
+}
+
+/* Close Tab*/
+#context_closeTab {
+  display:none !important;
+}
+
+/* Duplicate Tab */
+/*#context_duplicateTab {
+  display:none !important;
+}
+
+/* Bookmark Tab */
+#context_bookmarkTab {
+  display:none !important
+}
+
+/* Reload Tab */
+#context_reloadTab {
+  display:none !important
+}
+
+/* Close Multiple Tabs */
+#context_closeTabOptions {
+  display:none !important;
+}
+
+/*====================================================================================================================================================================================================================*/
+/*** Remove items from text context menu ***/
+
+/* Remove Separators */
+#context-sep-selectall, #context-sep-screenshots{
+  display: none !important;
+}
+
+/* Remove Select All */
+#context-selectall {
+  display:none !important;
+}
+
+/* Remove View Selection Source */
+#context-viewpartialsource-selection {
+  display:none !important;
+}
+
+/* Remove Print Selection */
+#context-print-selection {
+  display: none !important;
+}
+
+/*====================================================================================================================================================================================================================*/
+/*** Remove Items from Bookmark Context Menu ***/
+
+/* Remove Separator */
+#placesContext_deleteSeparator {
+  display:none !important;
+}
+
+/*Remove Cut Option*/
+#placesContext_cut {
+  display:none !important;
+}
+
+/*Remove Copy Option*/
+#placesContext_copy {
+  display:none !important;
+}
+
+/*Remove Paste Option*/
+#placesContext_paste_group {
+  display:none !important;
+}
+
+/* Open In New Private Window */
+#placesContext_open\:newprivatewindow {
+  display:none !important;
+}
+
+/*====================================================================================================================================================================================================================*/
+/*** Remove Items from Blank Context Menu ***/
+/* Remove First Separator /
+#context-sep-navigation {
+  display:none !important;
+}
+
+/* Backwards Page Left Arrow */
+/*#context-back {
+  display:none !important;
+}
+
+/*Forward Page Right Arrow */
+/*#context-forward {
+  display:none !important;
+}
+
+/* Reload Page Icon*/
+/*#context-reload {
+  display:none !important;
+}
+
+/* Bookmark Page Icon */
+#context-bookmarkpage {
+  display:none !important;
+}
+
+/* Remove Save Page to Pocket */
+ #context-pocket {
+  display:none !important;
+ }
+
+ /* Save Page As */
+ #context-savepage {
+  display:none !important;
+ }
+
+ /*====================================================================================================================================================================================================================*/
+ /*** Navigation Bar Context Menu ***/
+/* Remove Separator */
+menupopup.textbox-contextmenu:nth-child(3) > menuseparator:nth-child(3) {
+  display: none !important;
+}
+
+ /* Undo Option */
+ menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(1) {
+  display: none !important;
+ }
+
+ /* Redo Option */
+ menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(2) {
+  display: none !important;
+ }
+
+ /* Paste and Go Option */
+ #paste-and-go {
+  display: none !important;
+ }
+
+ /* Delete Option */
+ menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(9) {
+  display: none !important;
+ }
+
+ /* Select All Option */
+ menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(10) {
+  display: none !important;
+ }
+
+ /* Cut Option */
+ menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(4) {
+  display:none !important;
+ }
+
+/*====================================================================================================================================================================================================================*/
+
+
+/* Renaming Copy Link Without Site Tracking Context Menu Option */ /* Affects Both Image Context Menu and Link Context Menu */
+#context-stripOnShareLink label {
+  display:none !important;
+}
+#context-stripOnShareLink::after {
+  content: "Copy Link Without Tracking" !important;
+  display: block;
+  padding-right: 11px; /* Adjust this value to match the original padding */
+  padding-left: 0px; /* Adjust this value if the text appears too close to the left side */
+  font-family: inherit; /* Ensures that the font matches the original one */
+}
+
+/* Renaming Copy Link Without Site Tracking in URL Bar Context Menu*/
+#strip-on-share label {
+  display:none;
+}
+#strip-on-share::after {
+  content: "Copy Link Without Tracking" !important;
+  display: block;
+  padding-right: 11px;
+  padding-left: 0px;
+  font-family: inherit;
+}
