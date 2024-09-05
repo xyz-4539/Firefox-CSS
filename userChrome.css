@@ -257,7 +257,8 @@ findbar {
 }
 
 /* Make Bookmarks Black and White */
-/*.tab-icon-image,                                   Icons in the Tab Bar */
+span.urlbarView-no-wrap,                           /* Firefox Suggest on URL Bar*/
+.tab-icon-image,                                   /*Icons in the Tab Bar */
 .bookmark-item .menu-iconic-left,                  /*Icon in the Bookmarks Menu */ 
 .bookmark-item .toolbarbutton-icon,                /*Icon in the Bookmarks Toolbar */ 
 treechildren.sidebar-placesTreechildren {          /*Icons in the Bookmarks side bar (next to the tabs or URL bar)*/
@@ -587,7 +588,7 @@ display:none !important;
  /*====================================================================================================================================================================================================================*/
  /*** Navigation Bar Context Menu ***/
 /* Remove Separator */
-menupopup.textbox-contextmenu:nth-child(3) > menuseparator:nth-child(3) {
+menupopup.textbox-contextmenu:nth-child(3) > menuseparator:nth-child(3), .menuseparator-add-engine {
   display: none !important;
 }
 
@@ -619,6 +620,11 @@ menupopup.textbox-contextmenu:nth-child(3) > menuseparator:nth-child(3) {
  /* Cut Option */
  menupopup.textbox-contextmenu:nth-child(3) > menuitem:nth-child(4) {
   display:none !important;
+ }
+
+ /* Add Search Engine */
+ menuitem.menuitem-iconic:nth-child(12) {
+  display: none !important;
  }
 
 /*====================================================================================================================================================================================================================*/
